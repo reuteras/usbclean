@@ -1,0 +1,10 @@
+[Unit]
+Description=Monitor zerousb and control leds.
+
+[Service]
+ExecStart=/usr/local/bin/monitor.sh
+Restart=always
+TimeoutSec=0
+
+[Install]
+WantedBy=default.target
