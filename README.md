@@ -2,19 +2,20 @@ Simple solution to use a Raspberry Pi to delete data from a USB-stick. After del
 
 The MBR will also be removed.
 
-==Installation==
+Installation
+============
 
 I used [Raspbian Lite](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and more information about how you can write that image to your SD card can be found at [raspberrypi.org](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
 
 Login to your Pi (default is pi/raspberry) and run
 
-   sudo apt-get update
-   sudo apt-get dist-upgrade
-   sudo raspi-config                    # configure
-   sudo apt-get install git
-   git clone 
-   cd zerousb
-   make install
+    sudo apt-get update
+    sudo apt-get dist-upgrade
+    sudo raspi-config                    # configure
+    sudo apt-get install git
+    git clone 
+    cd zerousb
+    make install
 
 Everything should now be setup and the next time you insert a usb memory stick the contents should be deleted.
 
