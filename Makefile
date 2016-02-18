@@ -3,11 +3,9 @@
 all: install
 
 install:
-	cp detach.sh zerousb.sh monitor.sh /usr/local/bin/
-	chown root:root /usr/local/bin/detach.sh
+	cp zerousb.sh monitor.sh /usr/local/bin/
 	chown root:root /usr/local/bin/monitor.sh
 	chown root:root /usr/local/bin/zerousb.sh
-	chmod 755 /usr/local/bin/detach.sh
 	chmod 755 /usr/local/bin/monitor.sh
 	chmod 755 /usr/local/bin/zerousb.sh
 	cp 90-local.rules /etc/udev/rules.d/

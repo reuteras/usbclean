@@ -1,1 +1,1 @@
-ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[a-z]1", RUN+="/usr/local/bin/detach.sh"
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[a-z]1", RUN+="touch /tmp/zerousb"
