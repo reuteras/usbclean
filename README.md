@@ -12,10 +12,11 @@ Login to your Pi (default username/password is pi/raspberry) and run
     sudo apt-get update
     sudo apt-get dist-upgrade
     sudo raspi-config                    # configure according to taste
-    sudo apt-get install git
+    sudo apt-get install exfat-fuse exfat-utils git
     git clone https://github.com/reuteras/zerousb.git
     cd zerousb
+    sudo bash
     make install
 
-Everything should now be setup and the next time you insert a usb memory stick the contents should be deleted.
+Everything should now be set up and the next time you insert a usb memory stick the files on it should be deleted.
 
