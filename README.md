@@ -7,13 +7,13 @@ Installation
 
 I used [Raspbian Lite](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and more information about how you can write that image to your SD card can be found at [raspberrypi.org](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
 
-Login to your Pi (default is pi/raspberry) and run
+Login to your Pi (default username/password is pi/raspberry) and run
 
     sudo apt-get update
     sudo apt-get dist-upgrade
-    sudo raspi-config                    # configure
+    sudo raspi-config                    # configure according to taste
     sudo apt-get install git
-    git clone 
+    git clone https://github.com/reuteras/zerousb.git
     cd zerousb
     make install
 
