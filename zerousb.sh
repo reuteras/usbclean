@@ -18,7 +18,7 @@ if ! grep -qs /dev/"$DEVICE"1 /proc/mounts; then
     mount /dev/"$DEVICE"1 $MP
 fi
 
-rm -rf $MP/*
+find $MP -mindepth 1 -print0 | xargs -0 -n 10 rm -rf
 
 TYPE=$(mount | grep $MP | awk '{print $5}')
 
