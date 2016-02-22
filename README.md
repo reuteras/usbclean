@@ -5,7 +5,7 @@ The MBR will also be removed.
 Installation
 ============
 
-I used [Raspbian Lite](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and more information about how you can write that image to your SD card can be found at [raspberrypi.org](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
+I used [Raspbian Lite (February 2016)](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) and more information about how you can write that image to your SD card can be found at [raspberrypi.org](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
 
 Login to your Pi (default username/password is pi/raspberry) and run
 
