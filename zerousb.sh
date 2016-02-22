@@ -24,7 +24,6 @@ TYPE=$(mount | grep $MP | awk '{print $5}')
 
 for ((i=1; i<=$TIMES; i++)); do
     if [[ $TYPE == "vfat" ]]; then
-        i=0
         while true; do
             dd if=/dev/urandom of=$MP/zero.$i bs=512 count=1048570 || break
             i=$(( i + 1 ))
