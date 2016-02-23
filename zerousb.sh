@@ -18,7 +18,12 @@ if ! grep -qs /dev/"$DEVICE"1 /proc/mounts; then
     mount /dev/"$DEVICE"1 $MP
 fi
 
-find $MP -mindepth 1 -print0 | xargs -0 -n 10 rm -rf
+COUNT=0
+
+while [ "$COUNT" != "1" ]; do
+    find $MP -mindepth 1 -print0 | xargs -0 -n 10 rm -rf > /dev/null 2>&1
+    COUNT=$(find $MP -maxdepth 1 | wc -l | awk '{print $1}')
+done
 
 TYPE=$(mount | grep $MP | awk '{print $5}')
 
