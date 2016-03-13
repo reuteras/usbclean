@@ -22,3 +22,7 @@ Everything should now be set up and the next time you insert a USB memory stick 
 
 Before inserting a USB memory stick the green led will be on. While the cleaning process is running the red led will be turned off. When the green led is turned on again you can safely remove the USB memory.
 
+##TODO
+
+* Reformat the memory stick with sfdisk?
+
