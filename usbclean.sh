@@ -40,7 +40,6 @@ for ((i=1; i<=$TIMES; i++)); do
     rm -f $MP/zero*
 done
 
-dd if=/dev/zero of=/dev/$DEVICE bs=446 count=1
-
 umount $MP
 rmdir $MP
+

@@ -21,12 +21,12 @@ set_leds_red(){
 setup_leds
 
 while true; do
-    if [ -e /tmp/zerousb ]; then
-        nohup /usr/local/bin/zerousb.sh &
-        rm -f /tmp/zerousb
+    if [ -e /tmp/usbclean ]; then
+        nohup /usr/local/bin/usbclean.sh &
+        rm -f /tmp/usbclean
     fi
-    if ps -ef | grep zerousb.sh | grep -v grep | \
-        grep zerousb.sh > /dev/null; then 
+    if ps -ef | grep usbclean.sh | grep -v grep | \
+        grep usbclean.sh > /dev/null; then 
         set_leds_red
     else
         set_leds_green

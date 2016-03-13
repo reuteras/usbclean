@@ -1,5 +1,5 @@
 [Unit]
-Description=Monitor zerousb and control leds.
+Description=Monitor usbclean and control leds.
 
 [Service]
 ExecStart=/usr/local/bin/monitor.sh
