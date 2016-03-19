@@ -14,8 +14,13 @@ if [ ! -d "$MP" ]; then
     mkdir $MP
 fi
 
-if ! grep -qs /dev/"$DEVICE"1 /proc/mounts; then
-    mount /dev/"$DEVICE"1 $MP
+PART=""
+if [ -e /dev/"$DEVICE"1 ]; then
+    PART="1"
+fi
+
+if ! grep -qs /dev/$DEVICE$PART /proc/mounts; then
+    mount /dev/$DEVICE$PART $MP
 fi
 
 COUNT=0
