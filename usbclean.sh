@@ -14,6 +14,11 @@ if [ ! -d "$MP" ]; then
     mkdir $MP
 fi
 
+if [ -e /dev/"$DEVICE"2 ]; then
+    # Don't handle complex disk layouts on USB
+    exit 1
+fi
+
 PART=""
 if [ -e /dev/"$DEVICE"1 ]; then
     PART="1"
