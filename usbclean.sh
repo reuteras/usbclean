@@ -36,18 +36,17 @@ while [ "$COUNT" != "1" ]; do
 done
 
 TYPE=$(mount | grep $MP | awk '{print $5}')
+if [[ $TYPE != "vfat" && $TYPE != "fuseblk" ]]; then
+    exit 1
+fi
 
 for ((i=1; i<=$TIMES; i++)); do
-    if [[ $TYPE == "vfat" ]]; then
-        while true; do
-            dd if=/dev/urandom of=$MP/zero.$i bs=512 count=1048570 || break
-            i=$(( i + 1 ))
-        done
-    else
-        dd if=/dev/urandom of=$MP/zero || true
-    fi
+    while true; do
+        dd if=/dev/urandom of=$MP/zero.$i bs=512 count=1048570 || break
+    done
     sync
     rm -f $MP/zero*
+    i=$(( i + 1 ))
 done
 
 umount $MP
