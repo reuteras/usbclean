@@ -41,8 +41,10 @@ if [[ $TYPE != "vfat" && $TYPE != "fuseblk" ]]; then
 fi
 
 for ((i=1; i<=$TIMES; i++)); do
+    file=0
     while true; do
-        dd if=/dev/urandom of=$MP/zero.$i bs=512 count=1048570 || break
+        dd if=/dev/urandom of=$MP/zero.$file bs=512 count=1048570 || break
+        file=$((file + 1))
     done
     sync
     rm -f $MP/zero*
