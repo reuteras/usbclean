@@ -46,7 +46,6 @@ for ((i=1; i<=$TIMES; i++)); do
     done
     sync
     rm -f $MP/zero*
-    i=$(( i + 1 ))
 done
 
 umount $MP
