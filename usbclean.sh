@@ -40,10 +40,13 @@ if [[ $TYPE != "vfat" && $TYPE != "fuseblk" ]]; then
     exit 1
 fi
 
+BLOCKSIZE=$(blockdev --getbsz /dev/$DEVICE$PART)
+COUNT=$((536867840/$BLOCKSIZE))
+
 for ((i=1; i<=$TIMES; i++)); do
     file=0
     while true; do
-        dd if=/dev/urandom of=$MP/zero.$file bs=512 count=1048570 || break
+        dd if=/dev/urandom of=$MP/zero.$file bs=$BLOCKSIZE count=$COUNT || break
         file=$((file + 1))
     done
     sync
