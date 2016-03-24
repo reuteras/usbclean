@@ -1,4 +1,4 @@
-.PHONY: install
+.PHONY: install test
 
 all: install
 
@@ -15,3 +15,5 @@ install:
 	systemctl enable usbclean-monitor.service
 	systemctl start usbclean-monitor.service
 
+test:
+	shellcheck -f checkstyle *sh > checkstyle.out
