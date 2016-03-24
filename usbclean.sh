@@ -6,12 +6,12 @@ DEVICE=$(dmesg | grep "Attached SCSI removable disk" | sed -e "s/.*\[//" | sed -
 MP=/mnt/$DEVICE
 TIMES=1
 
-if [ ! -e /dev/$DEVICE ]; then
+if [ ! -e "/dev/$DEVICE" ]; then
     exit 1
 fi
 
 if [ ! -d "$MP" ]; then
-    mkdir $MP
+    mkdir "$MP"
 fi
 
 if [ -e /dev/"$DEVICE"2 ]; then
@@ -24,35 +24,35 @@ if [ -e /dev/"$DEVICE"1 ]; then
     PART="1"
 fi
 
-if ! grep -qs /dev/$DEVICE$PART /proc/mounts; then
-    mount /dev/$DEVICE$PART $MP
+if ! grep -qs "/dev/$DEVICE$PART" /proc/mounts; then
+    mount "/dev/$DEVICE$PART $MP"
 fi
 
 COUNT=0
 
 while [ "$COUNT" != "1" ]; do
-    find $MP -mindepth 1 -print0 | xargs -0 -n 10 rm -rf > /dev/null 2>&1
-    COUNT=$(find $MP -maxdepth 1 | wc -l | awk '{print $1}')
+    find "$MP" -mindepth 1 -print0 | xargs -0 -n 10 rm -rf > /dev/null 2>&1
+    COUNT=$(find "$MP" -maxdepth 1 | wc -l | awk '{print $1}')
 done
 
-TYPE=$(mount | grep $MP | awk '{print $5}')
+TYPE=$(mount | grep "$MP" | awk '{print $5}')
 if [[ $TYPE != "vfat" && $TYPE != "fuseblk" ]]; then
     exit 1
 fi
 
-BLOCKSIZE=$(blockdev --getbsz /dev/$DEVICE$PART)
-COUNT=$((536867840/$BLOCKSIZE))
+BLOCKSIZE=$(blockdev --getbsz "/dev/$DEVICE$PART")
+COUNT=$((536867840/BLOCKSIZE))
 
-for ((i=1; i<=$TIMES; i++)); do
+for ((i=1; i<=TIMES; i++)); do
     file=0
     while true; do
-        dd if=/dev/urandom of=$MP/zero.$file bs=$BLOCKSIZE count=$COUNT || break
+        dd if=/dev/urandom of="$MP/zero.$file" bs="$BLOCKSIZE" count="$COUNT" || break
         file=$((file + 1))
     done
     sync
-    rm -f $MP/zero*
+    rm -f "$MP"/zero*
 done
 
-umount $MP
-rmdir $MP
+umount "$MP"
+rmdir "$MP"
 
