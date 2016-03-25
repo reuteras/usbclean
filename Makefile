@@ -16,4 +16,4 @@ install:
 	systemctl start usbclean-monitor.service
 
 test:
-	shellcheck -f checkstyle *sh > checkstyle.out
+	shellcheck -f checkstyle *.sh > checkstyle.out || true
