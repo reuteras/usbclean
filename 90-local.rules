@@ -1,1 +1,2 @@
 ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[a-z]1", RUN+="/usr/bin/touch /tmp/usbclean"
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[a-z]", RUN+="/usr/bin/touch /tmp/usbclean"
