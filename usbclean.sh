@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# shellcheck disable=SC1117
 DEVICE=$(dmesg | grep "Attached SCSI removable disk" | sed -e "s/.*\[//" | sed -e "s/\].*//" | tail -1)
 [ -z "$DEVICE" ] && exit 1
 
