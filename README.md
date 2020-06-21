@@ -1,3 +1,7 @@
+# usbclean
+
+![Linter](https://github.com/reuteras/usbclean/workflows/Linter/badge.svg)
+
 A solution to use a Raspberry Pi to automatically delete data from a USB memory stick. After deletion of the files the disk will be filled with random data that are then removed. Because of the way USB memory sticks work it is not guaranteed that parts of the original files can be retrieved. If anyone has a better solution please file a bug or contact me on Twitter [@reuteras](https://twitter.com/reuteras).
 
 # Installation
