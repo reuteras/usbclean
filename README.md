@@ -4,7 +4,7 @@
 
 A solution to use a Raspberry Pi to automatically delete data from a USB memory stick. After deletion of the files the disk will be filled with random data that are then removed. Because of the way USB memory sticks work it is not guaranteed that parts of the original files can be retrieved. If anyone has a better solution please file a bug or contact me on Twitter [@reuteras](https://twitter.com/reuteras).
 
-# Installation
+## Installation
 
 I used [Raspbian Lite (February 2016)](https://www.raspberrypi.org/documentation/installation/installing-images/README.md). Information about how to write that image to your SD card can be found at [raspberrypi.org](https://www.raspberrypi.org/documentation/installation/installing-images/README.md).
 
