@@ -41,9 +41,9 @@ if [[ $TYPE != "vfat" && $TYPE != "fuseblk" ]]; then
 fi
 
 BLOCKSIZE=$(blockdev --getbsz "/dev/$DEVICE$PART")
-COUNT=$((536867840/BLOCKSIZE))
+COUNT=$((536867840 / BLOCKSIZE))
 
-for ((i=1; i<=TIMES; i++)); do
+for ((i = 1; i <= TIMES; i++)); do
     file=0
     while true; do
         dd if=/dev/urandom of="$MP/zero.$file" bs="$BLOCKSIZE" count="$COUNT" || break
@@ -55,4 +55,3 @@ done
 
 umount "$MP"
 rmdir "$MP"
-

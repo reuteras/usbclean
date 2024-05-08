@@ -1,6 +1,6 @@
 #!/bin/bash
 
-setup_leds(){
+setup_leds() {
     echo none > /sys/class/leds/led0/trigger
     echo none > /sys/class/leds/led1/trigger
     echo 0 > /sys/class/leds/led0/brightness
@@ -8,12 +8,12 @@ setup_leds(){
     return 1
 }
 
-set_leds_green(){
+set_leds_green() {
     echo 1 > /sys/class/leds/led0/brightness
     echo 0 > /sys/class/leds/led1/brightness
 }
 
-set_leds_red(){
+set_leds_red() {
     echo 0 > /sys/class/leds/led0/brightness
     echo 1 > /sys/class/leds/led1/brightness
 }
@@ -32,4 +32,3 @@ while true; do
     fi
     sleep 1
 done
-
