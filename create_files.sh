@@ -7,7 +7,7 @@ TEXT="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lect
 for ((j=0; j < 5000; j++)); do
     # shellcheck disable=SC1117
     # shellcheck disable=SC2028
-    echo "Secret file $j in root. \n$TEXT" > secret_file_"$j".txt;
+    echo "Secret file $j in root. \n$TEXT" > secret_file_"$j".txt
 done
 
 i=0
