@@ -13,7 +13,7 @@ done
 i=0
 while true; do
     mkdir dir"$i"
-    for ((j=0; j < 5000; j++)); do 
+    for ((j=0; j < 5000; j++)); do
         # shellcheck disable=SC1117
         # shellcheck disable=SC2028
         echo "Secret file $j in dir $i. \n$TEXT" > dir"$i"/secret_file_"$j".txt;

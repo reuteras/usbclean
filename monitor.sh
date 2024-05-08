@@ -25,7 +25,7 @@ while true; do
         nohup /usr/local/bin/usbclean.sh &
         rm -f /tmp/usbclean
     fi
-    if pgrep usbclean.sh > /dev/null; then 
+    if pgrep usbclean.sh > /dev/null; then
         set_leds_red
     else
         set_leds_green
